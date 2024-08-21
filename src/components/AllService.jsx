@@ -2,92 +2,101 @@ import React, { useEffect } from "react";
 import Glide from "@glidejs/glide";
 
 const AllService = () => {
-  useEffect(() => {
-    const slider = new Glide(".glide-04", {
-      type: "carousel",
-      focusAt: "center",
-      perView: 4,
-      autoplay: 3500,
-      animationDuration: 700,
-      gap: 24,
-      classNames: {
-        nav: {
-          active: "[&>*]:bg-wuiSlate-700",
-        },
-      },
-      breakpoints: {
-        1024: {
-          perView: 2,
-        },
-        640: {
-          perView: 1,
-        },
-      },
-    }).mount();
+  const cardData = [
+    {
+      img: "/images/gas.webp",
+      alt: "image",
+      title: "Gas Stove  Service",
+    },
+    {
+      img: "/images/paint.webp",
+      alt: "image",
+      title: "Painting Services",
+    },
+    {
+      img: "/images/plambing.webp",
+      alt: "image",
+      title: "Plumbing  Service",
+    },
+    {
+      img: "/images/homecleaning.webp",
+      alt: "image",
+      title: "Home Cleaning Service",
+    },
+    {
+      img: "/images/homeshifting.webp",
+      alt: "image",
+      title: "Home Shifting Service",
+    },
+  ];
+ useEffect(() => {
+   const slider = new Glide(".glide-04", {
+     type: "carousel",
+     focusAt: 1,
+     perView: 4,
+     autoplay: 3500,
+     animationDuration: 700,
+     gap: 24,
+     classNames: {
+       nav: {
+         active: "[&>*]:bg-wuiSlate-700",
+       },
+     },
+     breakpoints: {
+       1024: {
+         perView: 2,
+       },
+       640: {
+         perView: 1,
+       },
+     },
+   }).mount();
 
-    return () => {
-      slider.destroy();
-    };
-  }, []);
+   return () => {
+     slider.destroy();
+   };
+ }, []);
+
 
   return (
     <>
-      {/*<!-- Component: Carousel with controls outside --> */}
+      <div className="header">
+        <h1 className="text-center mb-10 text-3xl font-bold">
+         For Your Home
+        </h1>
+      </div>
+      {/*<!-- Component: Testimonial carousel --> */}
       <div className="glide-04 relative w-[90%] mx-auto">
         {/*    <!-- Slides --> */}
-        <div className="overflow-hidden" data-glide-el="track">
-          <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-01.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-02.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-03.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-04.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-05.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-05.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-05.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
-            <li>
-              <img
-                src="https://Tailwindmix.b-cdn.net/carousel/carousel-image-05.jpg"
-                className="m-auto max-h-full w-full max-w-full"
-              />
-            </li>
+        <div data-glide-el="track" className="overflow-hidden">
+          <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-[300px] overflow-hidden p-0 pb-12">
+            {cardData.map((data, index) => (
+              <li key={index}>
+                {/*<!-- Component: Basic blog card --> */}
+                <div className="overflow-hidden w-[] rounded bg-white text-slate-500 shadow-md shadow-slate-200">
+                  {/*  <!-- Image --> */}
+                  <figure>
+                    <img
+                      src={data.img}
+                      alt="card image"
+                      className="aspect-video w-full h-48"
+                    />
+                  </figure>
+                  {/*  <!-- Body--> */}
+                  <div className="p-6">
+                    <header className="mb-4">
+                      <h3 className="text-xl font-medium text-slate-700">
+                       {data.title}
+                      </h3>
+                    </header>
+                  </div>
+                </div>
+                {/*<!-- End Basic blog card --> */}
+              </li>
+            ))}
           </ul>
         </div>
-        {/*    <!-- Controls --> */}
+        {/*    <!-- Indicators --> */}
         <div
           className="flex w-full items-center justify-center gap-2 p-4"
           data-glide-el="controls"
@@ -136,8 +145,7 @@ const AllService = () => {
           </button>
         </div>
       </div>
-      {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script> */}
-      {/*<!-- End Carousel with controls outside --> */}
+      {/*<!-- End Testimonial carousel --> */}
     </>
   );
 };
