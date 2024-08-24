@@ -4,16 +4,18 @@ import AppSection from "../components/AppSection";
 import AllService from "../components/AllService";
 import OtherCard from "../components/OtherCard";
 import Customer from "../components/Customer";
+// import ServiceForm from "./ServiceForm";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Banner />
       <AppSection />
       <AllService />
       <OtherCard />
       <Customer />
-    </div>
+      {/* {/* <ServiceForm/> */}
+    </>
   );
 };
 
