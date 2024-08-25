@@ -12,24 +12,41 @@ const Header = () => {
   };
   const handleGetStarted = () => {
     // navigate("/ServiceForm");
-    navigate('/service');
+    navigate("/service");
   };
 
   return (
     <div>
       <nav className="lg:container md:pb-2 border-gray-200 mx-auto dark:bg-gray-900">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between p-4 sm:pt-8">
-          <Link to={'/'} className="flex items-center space-x-3 rtl:space-x-reverse">
+        <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4 sm:pt-8">
+          <Link
+            to={"/"}
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
             <img src="/public/images/manpower.svg" className="h-8" alt="logo" />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
+            <div class="flex items-center gap-10 justify-center">
+              <button
+                type="button"
+                class="relative inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-[#41B3A2]  rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+               
+                <span class="sr-only">Notifications</span>
+               Your Service
+                <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+                  8
+                </div>
+              </button>
+              <button
               type="button"
-              className="hidden md:block text-white bg-[#41B3A2] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="hidden md:block text-white bg-[#41B3A2] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={handleGetStarted}
             >
               Get started
             </button>
+            </div>
+            
             <button
               onClick={toggleSidebar}
               type="button"
@@ -63,7 +80,7 @@ const Header = () => {
               <li>
                 <Link
                   // href="#"
-                  to={'/'}
+                  to={"/"}
                   className="block py-2 px-3 md:p-0 text-[#1A1A1A] font-extrabold"
                   aria-current="page"
                 >
@@ -81,7 +98,11 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <Link to={"/contact"} href="#" className="block py-2 px-3 md:p-0 text-gray-500">
+                <Link
+                  to={"/contact"}
+                  href="#"
+                  className="block py-2 px-3 md:p-0 text-gray-500"
+                >
                   Contact
                 </Link>
               </li>

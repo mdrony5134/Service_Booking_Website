@@ -6,8 +6,8 @@ const AppSection = () => {
   let isInView = useInView(ref, { infinite: true });
 
   return (
-    <section ref={ref} className="mb-8 text-gray-800 bg-gray-100">
-      <div className="container flex pt-4 md:pt-16  flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+    <section ref={ref} className="lg:container mx-auto mb-8 text-gray-800 bg-gray-100">
+      <div className="max-w-screen-xl  flex pt-4 md:pt-16  flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
